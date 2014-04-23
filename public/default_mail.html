@@ -1,0 +1,39 @@
+<h1>Listing mails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Email</th>
+      <th>To</th>
+      <th>Date</th>
+      <th>Subject</th>
+      <th>Text</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mails.each do |mail| %>
+      <tr>
+        <td><%= mail.from %></td>
+        <td><%= mail.email %></td>
+        <td><%= mail.to %></td>
+        <td><%= mail.date %></td>
+        <td><%= mail.subject %></td>
+        <td><%= mail.text %></td>
+        <td><%= mail.status %></td>
+        <td><%= link_to 'Show', mail %></td>
+        <td><%= link_to 'Edit', edit_mail_path(mail) %></td>
+        <td><%= link_to 'Destroy', mail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mail', new_mail_path %>
